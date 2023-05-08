@@ -2,14 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {DateService} from '../../services/date.service';
 
-interface IDay {
+export interface IDay {
   value: moment.Moment
   active: boolean
   disabled: boolean
   selected: boolean
 }
 
-interface IWeek {
+export interface IWeek {
   days: IDay[]
 }
 
@@ -27,6 +27,8 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.dateService.date.subscribe(date => this.generate(date))
+
+    console.log(this.calendar);
   }
 
   generate(now: moment.Moment) {
