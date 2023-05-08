@@ -1,5 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {MomentPipe} from '../pipes/moment.pipe';
 import {CalendarComponent} from './calendar/calendar.component';
 import { SelectorComponent } from './selector/selector.component';
 import { OrganizerComponent } from './organizer/organizer.component';
@@ -8,7 +9,8 @@ import { OrganizerComponent } from './organizer/organizer.component';
   declarations: [
     CalendarComponent,
     SelectorComponent,
-    OrganizerComponent
+    OrganizerComponent,
+    MomentPipe
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { OrganizerComponent } from './organizer/organizer.component';
   exports: [
     CalendarComponent,
     SelectorComponent,
-    OrganizerComponent
+    OrganizerComponent,
+    MomentPipe
   ]
 })
 
