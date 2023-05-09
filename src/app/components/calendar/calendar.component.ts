@@ -16,7 +16,7 @@ export interface IWeek {
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent implements OnInit {
 
@@ -28,7 +28,7 @@ export class CalendarComponent implements OnInit {
   ngOnInit(): void {
     this.dateService.date.subscribe(date => this.generate(date))
 
-    console.log(this.calendar);
+
   }
 
   generate(now: moment.Moment) {

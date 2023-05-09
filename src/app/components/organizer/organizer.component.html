@@ -2,6 +2,10 @@
   <header>
     Selected date: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>
   </header>
+
+<!--    <header>-->
+<!--    Selected date: <strong>{{orgDate}}</strong>-->
+<!--  </header>-->
     <ul *ngIf="tasks.length; else noTasks">
       <li class="task" *ngFor="let task of tasks; let i = index">
         <span>

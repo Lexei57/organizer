@@ -25,7 +25,7 @@ import { OrganizerComponent } from './organizer/organizer.component';
     SelectorComponent,
     OrganizerComponent,
     MomentPipe
-  ]
+  ],
 })
 
 export class ComponentsModule {

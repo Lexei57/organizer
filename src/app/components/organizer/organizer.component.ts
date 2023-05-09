@@ -9,18 +9,21 @@ import {ITask, TasksService} from '../../services/tasks.service';
   templateUrl: './organizer.component.html',
   styleUrls: ['./organizer.component.scss']
 })
-export class OrganizerComponent implements OnInit{
+export class OrganizerComponent implements OnInit {
 
   form: FormGroup
   tasks: ITask[] = []
 
+  orgDate: any
 
   constructor(public dateService: DateService, private tasksService: TasksService) {
   }
 
   ngOnInit(): void {
     this.dateService.date.pipe(
-      switchMap(value => this.tasksService.getTask(value))
+      switchMap(value => {
+        return this.tasksService.getTask(value);
+      })
     ).subscribe(tasks => {
       this.tasks = tasks
     })
@@ -28,6 +31,9 @@ export class OrganizerComponent implements OnInit{
     this.form = new FormGroup({
       title: new FormControl('', Validators.required)
     })
+
+
+
   }
 
   submit(): void {
