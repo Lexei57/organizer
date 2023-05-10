@@ -11,7 +11,7 @@ import {ITask, TasksService} from '../../services/tasks.service';
 })
 export class OrganizerComponent implements OnInit {
 
-  @ViewChild('inputTask') input: ElementRef
+  @ViewChild('inputTask') inputTask: ElementRef
 
   form: FormGroup
   tasks: ITask[] = []
@@ -31,6 +31,7 @@ export class OrganizerComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl('', Validators.required)
     })
+
 
   }
 
@@ -54,8 +55,6 @@ export class OrganizerComponent implements OnInit {
   }
 
   autoSizeToInputArea(): void {
-    // this.input.nativeElement.style.height = 'auto'
-    this.input.nativeElement.style.minHeight =`${this.input.nativeElement.scrollHeight}px`
-    console.log(this.input.nativeElement.scrollHeight);
+    this.inputTask.nativeElement.style.minHeight =`${this.inputTask.nativeElement.scrollHeight}px`
   }
 }
