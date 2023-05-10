@@ -4,7 +4,7 @@
   <tr>
     <th>Mon</th>
     <th>Tue</th>
-    <th>Wen</th>
+    <th>Wed</th>
     <th>Thu</th>
     <th>Fri</th>
     <th>Sat</th>
@@ -16,6 +16,7 @@
   <tr *ngFor="let week of calendar">
     <td *ngFor="let day of week.days"
         [class.disabled]="day.disabled"
+        [class.selected]="day.selected"
         (click)="selectDay(day.value)"
     >
       <span
@@ -28,3 +29,4 @@
 </table>
 
 </section>
+

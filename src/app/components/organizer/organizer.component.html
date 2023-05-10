@@ -1,18 +1,15 @@
 <section>
   <header>
-    Selected date: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>
+<!--    Selected date: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>-->
+    <p>Tasks</p>
   </header>
-
-<!--    <header>-->
-<!--    Selected date: <strong>{{orgDate}}</strong>-->
-<!--  </header>-->
     <ul *ngIf="tasks.length; else noTasks">
       <li class="task" *ngFor="let task of tasks; let i = index">
         <span>
           <strong>{{i + 1}}</strong>
           {{task.title}}
         </span>
-        <button class="btn btn-primary" (click)="removeTask(task)">Remove</button>
+        <button class="btn btn-remove" (click)="removeTask(task)"><i class="material-icons">close</i></button>
       </li>
     </ul>
 
@@ -21,12 +18,17 @@
   </ng-template>
   <footer>
     <form [formGroup]="form" (ngSubmit)="submit()">
-      <input type="text" formControlName="title">
+      <textarea
+        #inputTask
+        (input)="autoSizeToInputArea()"
+        (keydown.enter)="submit()"
+        type="text"
+        formControlName="title"></textarea>
 
       <button
         [disabled]="form.invalid"
         type="submit"
-        class="btn btn-primary btn-block"
+        class="btn btn-primary btn-block btn-submit"
       >Add</button>
     </form>
   </footer>

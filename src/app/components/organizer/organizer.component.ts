@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {switchMap} from 'rxjs';
 import {DateService} from '../../services/date.service';
@@ -11,10 +11,10 @@ import {ITask, TasksService} from '../../services/tasks.service';
 })
 export class OrganizerComponent implements OnInit {
 
+  @ViewChild('inputTask') input: ElementRef
+
   form: FormGroup
   tasks: ITask[] = []
-
-  orgDate: any
 
   constructor(public dateService: DateService, private tasksService: TasksService) {
   }
@@ -31,8 +31,6 @@ export class OrganizerComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl('', Validators.required)
     })
-
-
 
   }
 
@@ -53,5 +51,11 @@ export class OrganizerComponent implements OnInit {
     this.tasksService.removeTask(task).subscribe(() => {
       this.tasks = this.tasks.filter(t => t.id !== task.id)
     }, err => console.error(err))
+  }
+
+  autoSizeToInputArea(): void {
+    // this.input.nativeElement.style.height = 'auto'
+    this.input.nativeElement.style.minHeight =`${this.input.nativeElement.scrollHeight}px`
+    console.log(this.input.nativeElement.scrollHeight);
   }
 }
