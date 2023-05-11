@@ -1,4 +1,8 @@
+@import "src/app/utils/style-functions";
+
 section {
+  max-height: 50vh;
+  overflow-x: auto;
   border: 1.5px solid rgb(255, 118, 85, .5);
   border-radius: 0 0 10px 10px;
   padding: 0 1rem 1rem 1rem;
@@ -6,38 +10,58 @@ section {
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(255, 179, 162, 0.1);
-  header {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    //border-bottom: 1px solid #A6A2A9;
-    text-align: center;
-    p {
-      box-shadow:  0 3px 10px rgba(0, 0, 0, 0.5);
-      font-size: 1.2rem;
-      display: inline-flex;
-      background-color: #FF7655;
-      padding: .1rem 6.5rem;
-      border-radius: 0 0 10px 10px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.5);
+    border-radius: 10px;
+    &:hover {
+      background-color: rgba(169, 169, 169);
     }
   }
 }
 
+.input-place {
+  padding-bottom: rem(30);
+}
+
+header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  //border-bottom: 1px solid #A6A2A9;
+  text-align: center;
+
+  p {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    display: inline-flex;
+    background-color: #FF7655;
+    padding: .1rem 6.5rem;
+    border-radius: 0 0 10px 10px;
+  }
+}
 
 
 .task {
-  border-radius: 10px;
+  border-radius: rem(10);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: .5rem 1rem;
   border: 1px solid #ccc;
   margin-bottom: .5rem;
+
   span {
     overflow: hidden;
     word-break: break-all;
   }
+
   &:hover {
     border: 1px solid red;
 
@@ -46,14 +70,27 @@ section {
 
 
 textarea {
-  border-radius: 10px 10px 0 0;
+  font-family: 'Roboto', sans-serif;
+  //border-bottom: none;
+  //border-top: 1px solid #ccc;
+  //border-left: 1px solid #ccc;
+  //border-right: 1px solid #ccc;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   margin: 0;
-  width: 59.4rem;
+  width: rem(951);
   resize: none;
   outline: none;
   font-size: 1rem;
-  padding: .1rem 0;
+  padding: .5rem 0;
   overflow: hidden;
+  &:hover {
+    border: 1px solid #FF7655;
+  }
+}
+
+.input-selected {
+  border: 1px solid #FF7655;
 }
 
 .btn-remove {
@@ -61,14 +98,21 @@ textarea {
   padding: 0.1rem;
   border-radius: 50%;
   display: flex;
+
   i {
     align-self: center;
   }
 }
 
 .btn-submit {
+  display: block;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   border-radius: 0 0 10px 10px;
-  margin: 0;
-  padding-top: 8px;
+  margin: rem(-8) auto;
+  padding: rem(9) 0;
+  width: 27%;
 }
 

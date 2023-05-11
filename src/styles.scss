@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('node_modules/material-design-icons-iconfont/dist/material-design-icons.css');
+
 :root {
   --primary-color: #dc3545;
   --dark-color: rgba(51, 51, 51, 0.17);
@@ -84,10 +85,12 @@ table th {
 }
 
 .btn-primary {
-  background: var(--primary-color);
+  background: #FF7655;
   color: #fff;
 }
 
 .text-center {
   text-align: center;
 }
+
+

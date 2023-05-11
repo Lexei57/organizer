@@ -1,12 +1,28 @@
 <section>
   <header>
-<!--    Selected date: <strong>{{dateService.date | async | moment: 'DD.MM.YYYY'}}</strong>-->
     <p>Tasks</p>
   </header>
+  <div class="input-place">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <textarea
+        rows="1"
+        #inputTask
+        appFocusBorder
+        (input)="autoSizeToInputArea()"
+        (keydown.enter)="submit()"
+        type="text"
+        formControlName="title">
+      </textarea>
+      <button
+        [disabled]="form.invalid"
+        type="submit"
+        class="btn btn-primary btn-submit"
+      >Add</button>
+    </form>
+  </div>
     <ul *ngIf="tasks.length; else noTasks">
-      <li class="task" *ngFor="let task of tasks; let i = index">
+      <li class="task" *ngFor="let task of tasks">
         <span>
-          <strong>{{i + 1}}</strong>
           {{task.title}}
         </span>
         <button class="btn btn-remove" (click)="removeTask(task)"><i class="material-icons">close</i></button>
@@ -16,20 +32,5 @@
   <ng-template #noTasks>
     <p class="text-center">No tasks...</p>
   </ng-template>
-  <footer>
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <textarea
-        #inputTask
-        (input)="autoSizeToInputArea()"
-        (keydown.enter)="submit()"
-        type="text"
-        formControlName="title"></textarea>
-      <button
-        [disabled]="form.invalid"
-        type="submit"
-        class="btn btn-primary btn-block btn-submit"
-      >Add</button>
-    </form>
-  </footer>
 </section>
 

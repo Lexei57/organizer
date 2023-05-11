@@ -43,7 +43,7 @@ export class OrganizerComponent implements OnInit {
     }
 
     this.tasksService.createTask(task).subscribe(task => {
-      this.tasks.push(task)
+      this.tasks.unshift(task)
       this.form.reset()
     }, err => console.error(err))
   }
