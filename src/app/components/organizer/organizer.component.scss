@@ -1,32 +1,38 @@
 @import "src/app/utils/style-functions";
 
 section {
-  max-height: 50vh;
-  overflow-x: auto;
   border: 1.5px solid rgb(255, 118, 85, .5);
   border-radius: 0 0 10px 10px;
-  padding: 0 1rem 1rem 1rem;
-  width: 95%;
+  padding: 0 1rem 0 1rem;
+  width: 95.5%;
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(255, 179, 162, 0.1);
+}
+
+.tasks-container {
+  border-radius: 10px;
+  max-height: 37vh;
+  overflow: hidden;
+
+  &:hover {
+    overflow: auto;
+    margin: 0 -5px 0 0;
+  }
 
   &::-webkit-scrollbar {
-    width: 4px;
-    height: 8px;
+    width: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: rgba(169, 169, 169, 0.5);
     border-radius: 10px;
+
+
     &:hover {
       background-color: rgba(169, 169, 169);
     }
   }
-}
-
-.input-place {
-  padding-bottom: rem(30);
 }
 
 header {
@@ -34,7 +40,6 @@ header {
   z-index: 1;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  //border-bottom: 1px solid #A6A2A9;
   text-align: center;
 
   p {
@@ -47,6 +52,25 @@ header {
   }
 }
 
+.input-place {
+  padding-bottom: rem(30);
+}
+
+.btn-submit {
+  display: block;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  margin: rem(-8) auto;
+  padding: rem(3) 0;
+  width: 27%;
+}
+
+ul {
+  padding: rem(5);
+}
 
 .task {
   border-radius: rem(10);
@@ -71,10 +95,6 @@ header {
 
 textarea {
   font-family: 'Roboto', sans-serif;
-  //border-bottom: none;
-  //border-top: 1px solid #ccc;
-  //border-left: 1px solid #ccc;
-  //border-right: 1px solid #ccc;
   border: 1px solid #ccc;
   border-radius: 10px;
   margin: 0;
@@ -94,25 +114,15 @@ textarea {
 }
 
 .btn-remove {
-  background-color: #FF7655;
+  display: flex;
+  background-color: transparent;
   padding: 0.1rem;
   border-radius: 50%;
-  display: flex;
 
   i {
     align-self: center;
   }
 }
 
-.btn-submit {
-  display: block;
-  border-top: none;
-  border-bottom: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-radius: 0 0 10px 10px;
-  margin: rem(-8) auto;
-  padding: rem(9) 0;
-  width: 27%;
-}
+
 

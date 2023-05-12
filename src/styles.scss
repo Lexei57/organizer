@@ -70,7 +70,7 @@ table th {
 
   &:disabled {
     background: var(--dark-color);
-    color: #fff;
+    color: rgba(98, 96, 96, 0.55);
     cursor: not-allowed;
   }
 
@@ -86,7 +86,7 @@ table th {
 
 .btn-primary {
   background: #FF7655;
-  color: #fff;
+  color: black;
 }
 
 .text-center {

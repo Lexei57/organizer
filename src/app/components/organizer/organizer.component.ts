@@ -12,6 +12,7 @@ import {ITask, TasksService} from '../../services/tasks.service';
 export class OrganizerComponent implements OnInit {
 
   @ViewChild('inputTask') inputTask: ElementRef
+  @ViewChild('sectionContainer') scrollContainer: ElementRef
 
   form: FormGroup
   tasks: ITask[] = []
@@ -31,8 +32,6 @@ export class OrganizerComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl('', Validators.required)
     })
-
-
   }
 
   submit(): void {
@@ -45,6 +44,7 @@ export class OrganizerComponent implements OnInit {
     this.tasksService.createTask(task).subscribe(task => {
       this.tasks.unshift(task)
       this.form.reset()
+      this.inputTask.nativeElement.style.minHeight = '10px'
     }, err => console.error(err))
   }
 

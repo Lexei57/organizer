@@ -24,7 +24,7 @@ thead tr {
 tbody {
   //color: white;
   tr {
-    background-color: rgb(255, 179, 162, 0.1);
+    //background-color: rgb(255, 179, 162, 0.1);
     &:nth-last-child(1) {
       border-radius: 20px;
     }
@@ -47,6 +47,8 @@ table {
   margin-right: auto;
   //margin-bottom: 1rem;
   border-collapse: collapse;
+  background-color: rgb(255, 179, 162, 0.1);
+
 
   td, th {
     //border: 1px solid #000;
@@ -66,18 +68,20 @@ table {
     }
 
     &:hover:not(.disabled) {
-      background: rgb(238, 238, 238, 0.6);
+      background: rgb(217, 217, 217);
       cursor: pointer;
+      border-radius: 20px;
     }
   }
 
   .active {
-    color: rgb(19, 79, 104, 0.8);
+    color: #4fb8ff;
     font-weight: bold;
   }
 
   .day-selected {
-    color: #A6361C;
-    background-color: rgb(238, 238, 238, 0.8);
+    color: #FF7655;
+    background-color: rgb(217, 217, 217);
+    border-radius: 20px;
   }
 }
