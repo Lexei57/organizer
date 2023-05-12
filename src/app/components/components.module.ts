@@ -15,7 +15,6 @@ import { OrganizerComponent } from './organizer/organizer.component';
     OrganizerComponent,
     MomentPipe,
     FocusBorderDirective,
-
   ],
   imports: [
     CommonModule,

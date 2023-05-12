@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {switchMap} from 'rxjs';
 import {DateService} from '../../services/date.service';
 import {ITask, TasksService} from '../../services/tasks.service';
+import {CustomValidators} from '../../utils/custom.validators';
 
 @Component({
   selector: 'app-organizer',
@@ -30,12 +31,15 @@ export class OrganizerComponent implements OnInit {
     })
 
     this.form = new FormGroup({
-      title: new FormControl('', Validators.required)
+      title: new FormControl('', [Validators.required, CustomValidators.noWhitespaceValidator])
     })
   }
 
   submit(): void {
     const {title} = this.form.value
+    if (!title.trim()) {
+      return
+    }
     const task: ITask = {
       title,
       date: this.dateService.date.value.format('DD-MM-YYYY')
