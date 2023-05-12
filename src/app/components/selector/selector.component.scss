@@ -1,10 +1,16 @@
-p {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p {
+  display: flex;
+  background-color: #FF7655;
+  border-radius: 10px 10px 0 0 ;
+  padding: 0.3rem 0.3rem;
 
   span {
-    margin: 0 2rem;
     text-align: center;
     width: 200px;
   }

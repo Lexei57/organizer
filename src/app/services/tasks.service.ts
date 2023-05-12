@@ -31,7 +31,7 @@ export class TasksService {
             return []
           }
           // @ts-ignore
-          return Object.keys(tasks).map(key => ({...tasks[key], id: key}))
+          return Object.keys(tasks).map(key => ({...tasks[key], id: key})).reverse()
         })
       )
   }

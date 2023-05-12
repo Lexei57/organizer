@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {switchMap} from 'rxjs';
 import {DateService} from '../../services/date.service';
 import {ITask, TasksService} from '../../services/tasks.service';
+import {CustomValidators} from '../../utils/custom.validators';
 
 @Component({
   selector: 'app-organizer',
@@ -11,10 +12,11 @@ import {ITask, TasksService} from '../../services/tasks.service';
 })
 export class OrganizerComponent implements OnInit {
 
+  @ViewChild('inputTask') inputTask: ElementRef
+  @ViewChild('sectionContainer') scrollContainer: ElementRef
+
   form: FormGroup
   tasks: ITask[] = []
-
-  orgDate: any
 
   constructor(public dateService: DateService, private tasksService: TasksService) {
   }
@@ -29,23 +31,24 @@ export class OrganizerComponent implements OnInit {
     })
 
     this.form = new FormGroup({
-      title: new FormControl('', Validators.required)
+      title: new FormControl('', [Validators.required, CustomValidators.noWhitespaceValidator])
     })
-
-
-
   }
 
   submit(): void {
     const {title} = this.form.value
+    if (!title.trim()) {
+      return
+    }
     const task: ITask = {
       title,
       date: this.dateService.date.value.format('DD-MM-YYYY')
     }
 
     this.tasksService.createTask(task).subscribe(task => {
-      this.tasks.push(task)
+      this.tasks.unshift(task)
       this.form.reset()
+      this.inputTask.nativeElement.style.minHeight = '10px'
     }, err => console.error(err))
   }
 
@@ -53,5 +56,9 @@ export class OrganizerComponent implements OnInit {
     this.tasksService.removeTask(task).subscribe(() => {
       this.tasks = this.tasks.filter(t => t.id !== task.id)
     }, err => console.error(err))
+  }
+
+  autoSizeToInputArea(): void {
+    this.inputTask.nativeElement.style.minHeight =`${this.inputTask.nativeElement.scrollHeight}px`
   }
 }
