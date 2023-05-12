@@ -3,7 +3,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FocusBorderDirective} from '../directives/focusborder.directive';
-import {HideScrollbarDirective} from '../directives/hide-scrollbar.directive';
 import {MomentPipe} from '../pipes/moment.pipe';
 import {CalendarComponent} from './calendar/calendar.component';
 import { SelectorComponent } from './selector/selector.component';
@@ -16,7 +15,6 @@ import { OrganizerComponent } from './organizer/organizer.component';
     OrganizerComponent,
     MomentPipe,
     FocusBorderDirective,
-    HideScrollbarDirective,
 
   ],
   imports: [

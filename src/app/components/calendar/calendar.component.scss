@@ -67,8 +67,8 @@ table {
       opacity: .5;
     }
 
-    &:hover:not(.disabled) {
-      background: rgb(217, 217, 217);
+    &:hover:not(.disabled, .day-selected) {
+      background: rgb(231, 227, 227, .5);
       cursor: pointer;
       border-radius: 20px;
     }
@@ -81,7 +81,7 @@ table {
 
   .day-selected {
     color: #FF7655;
-    background-color: rgb(217, 217, 217);
+    background-color: rgb(231, 227, 227);
     border-radius: 20px;
   }
 }
