@@ -50,6 +50,8 @@ export class OrganizerComponent implements OnInit {
       this.form.reset()
       this.inputTask.nativeElement.style.minHeight = '10px'
     }, err => console.error(err))
+
+    this.inputTask.nativeElement.focus()
   }
 
   removeTask(task: ITask): void {
