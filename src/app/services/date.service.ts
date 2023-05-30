@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as moment from 'moment';
 import {BehaviorSubject} from 'rxjs';
 
@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root',
 })
 
-export class DateService implements OnInit {
+export class DateService {
 
   setMonAsStartOfWeek = moment.locale('en', {week: {dow: 1}})
   date: BehaviorSubject<moment.Moment> = new BehaviorSubject<moment.Moment>(moment())
@@ -22,8 +22,5 @@ export class DateService implements OnInit {
       month: date.month()
     })
     this.date.next(value)
-  }
-
-  ngOnInit(): void {
   }
 }

@@ -13,21 +13,19 @@ section {
 .tasks-container {
   border-radius: 10px;
   max-height: 37vh;
-  overflow: hidden;
-
-  &:hover {
-    overflow: auto;
-    margin: 0 -5px 0 0;
-  }
+  overflow: auto;
 
   &::-webkit-scrollbar {
     width: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(169, 169, 169, 0.5);
+    background-color: transparent;
     border-radius: 10px;
+  }
 
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.5);
 
     &:hover {
       background-color: rgba(169, 169, 169);
